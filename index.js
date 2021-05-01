@@ -340,11 +340,27 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
+function getHTML(data){
+  let html = [];
+  for (const d in data) {
+    html.push('<div id="artist">');
+    html.push('<div class="image>');
+    html.push(`   <img src="assets/${data[d].name}.jpg"/>`);
+    html.push('</div>')
 
-    /* Code here */
+    html.push('<div class="name">');
+    html.push(`   <a href="${data[d].wikipedia}"> ${data[d].name}</a>`);
+    html.push('</div');
 
+    html.push(`<div class="bio"> ${data[d].bio}`);
+    html.push('</div>');
   }
+
+  let joined = html.join('\n');
+  console.log(joined);
+}
+
+getHTML(artists);
 
 
 /* 💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪
